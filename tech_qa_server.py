@@ -30,8 +30,7 @@ KB = [
              "观察错误率与资源占用，出现拐点即为容量上限。"},
 ]
 
-# 建集合并灌库（默认 embedding 会自动把 documents 向量化）
-# 关掉遥测：否则它的输出可能污染 stdio 上的 JSON-RPC 流
+# 初始化 ChromaDB 向量数据库
 _client = chromadb.Client(Settings(anonymized_telemetry=False))
 _collection = _client.get_or_create_collection(name="tech_qa_kb")
 _collection.add(
